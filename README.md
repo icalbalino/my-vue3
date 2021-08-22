@@ -11,3 +11,6 @@ https://youtu.be/cP9bhEknW_g
 
 //using GUI
 vue ui
+
+//using plugin
+vue add <nama-plugin>
