@@ -14,19 +14,50 @@
       </v-container>
     </header>
 
-    <nav>
-      <v-container fluid style="padding:0; margin:0;">
-        <v-app-bar app light dense height="100" style="position: sticky;">
-            <v-tabs v-model="tab" centered slider-color="warning"> 
-                <v-tab v-for="list in lists" :key="list.text">{{ list.text }}</v-tab>
-            </v-tabs>
-        </v-app-bar>
-        <v-container style="height: 1000px;"></v-container>
-      </v-container>
-    </nav>
+    <template>
+      <v-app-bar app light dense height="100" style="position: sticky;">
+          <v-tabs v-model="tab" centered slider-color="warning"> 
+              <v-tab v-for="list in lists" :key="list.text">{{ list.text }}</v-tab>
+          </v-tabs>
+      </v-app-bar>
+    </template>
 
-    <v-main>
-      <section id="AboutMe"></section>
+    <v-main >
+      <section id="AboutMe">
+        <v-container>
+          <v-row no-gutters>
+            <v-col class="mb-6" cols="12">
+              <v-card class="pa-5" tile style="text-align:center;">
+                <h2>Who Am I</h2>
+                <h4 class="pa-2">ICAL FERIN BALINO</h4>
+              </v-card>
+            </v-col>
+
+            <v-col class="" cols="12" xs="12" sm="6" md="6">
+              <v-card class="d-flex align-center justify-center" tile>
+                <v-img src="https://picsum.photos/id/1010/1000/"></v-img>
+              </v-card>
+            </v-col>
+          
+            <v-col cols="12" xs="12" sm="6" md="6">
+              <v-card class="pa-5" tile>
+                <h3 class="mb-5">I Design Awesome Web Apps</h3>
+                <p style="text-align:justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere consequuntur error quibusdam excepturi vero, mollitia illum quasi minima, dicta ex optio quos sapiente quod harum totam suscipit aperiam. Commodi, beatae.</p>
+                <p style="text-align:justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid repudiandae quam excepturi ad doloremque nulla minima nemo. Iste facilis dolore reprehenderit voluptate aspernatur tenetur explicabo rem enim temporibus. Dolore.</p>
+              </v-card>
+            </v-col>          
+          </v-row>
+        </v-container>
+
+        <v-container>
+          <v-row>
+            <v-col v-for="n in 24" :key="n" cols="4">
+              <v-card height="200"></v-card>
+            
+            </v-col>
+          </v-row>
+        </v-container>
+      </section>
       <section id="Experience"></section>
       <section id="Skills"></section>
       <section id="Education"></section>
@@ -83,12 +114,20 @@ export default {
         font-size: 40px;
         margin: 0;
         font-family: 'Raleway', sans-serif;
+        font-weight: normal;
         text-align: center;
     }
 
     h2 > strong {
         font-size: 30px;
         font-weight: 600;
+    }
+    .nav {
+      z-index: 12;
+      color: red;
+      background-color: aqua;
+      border: 1px solid black !important;
+      height: 1000px;
     }
 </style>
 
