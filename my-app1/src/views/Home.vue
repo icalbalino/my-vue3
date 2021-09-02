@@ -23,7 +23,7 @@
     </template>
 
     <v-main >
-      <section id="AboutMe">
+      <section id="">
         <v-container>
           <v-row no-gutters>
             <v-col class="mb-6" cols="12">
@@ -44,23 +44,74 @@
                 <h3 class="mb-5">I Design Awesome Web Apps</h3>
                 <p style="text-align:justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere consequuntur error quibusdam excepturi vero, mollitia illum quasi minima, dicta ex optio quos sapiente quod harum totam suscipit aperiam. Commodi, beatae.</p>
                 <p style="text-align:justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid repudiandae quam excepturi ad doloremque nulla minima nemo. Iste facilis dolore reprehenderit voluptate aspernatur tenetur explicabo rem enim temporibus. Dolore.</p>
+                
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-content >
+                      <v-list-item-icon v-for="item in detailIcons" :key="item.icon">
+                        <v-icon v-text="item.icon"></v-icon>
+                      </v-list-item-icon>
+                    </v-list-item-content>
+
+                    <v-list-item-content v-for="text in detailIcons" :key="text.title">
+                      <v-list-item-title v-text="text.title"></v-list-item-title>
+                      <v-list-item-subtitle v-html="text.subtitle"></v-list-item-subtitle>
+                    </v-list-item-content>
+
+                  </v-list-item>
+                </v-list>
+
               </v-card>
             </v-col>          
           </v-row>
         </v-container>
 
-        <v-container>
+        <!-- <v-container>
           <v-row>
             <v-col v-for="n in 24" :key="n" cols="4">
               <v-card height="200"></v-card>
-            
+            </v-col>
+          </v-row>
+        </v-container> -->
+      </section>
+
+      <section id="Skills">
+        <v-container>
+          <v-row no-gutters>
+            <v-col class="mb-6" cols="12">
+              <v-card class="pa-5" tile style="text-align:center;">
+                <h2>Skills</h2>
+                <p class="pa-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore, doloribus quos aspernatur inventore maiores ad. Dolorem velit id deserunt modi adipisci harum iusto sint porro repellat, dolor eveniet nulla?</p>
+                <v-row>
+                  <v-col v-for="n in 4" :key="n" cols="3">
+                    <v-card height="200"></v-card>
+                  </v-col>
+                </v-row>
+              </v-card>
             </v-col>
           </v-row>
         </v-container>
       </section>
+
       <section id="Experience"></section>
-      <section id="Skills"></section>
-      <section id="Education"></section>
+
+      <section id="Education">
+        <v-container>
+          <v-row no-gutters>
+            <v-col class="mb-6" cols="12">
+              <v-card class="pa-5" tile style="text-align:center;">
+                <h2>Education</h2>
+                <p class="pa-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore, doloribus quos aspernatur inventore maiores ad. Dolorem velit id deserunt modi adipisci harum iusto sint porro repellat, dolor eveniet nulla?</p>
+                <v-row>
+                  <v-col v-for="n in 4" :key="n" cols="3">
+                    <v-card height="200"></v-card>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </section>
     </v-main>
 
     <v-footer id="Contact" dark padless>
@@ -103,6 +154,12 @@ export default {
         'mdi-twitter',
         'mdi-linkedin',
         'mdi-instagram',
+      ],
+      detailIcons: [
+        {icon: 'mdi-account', title: 'Nama', subtitle: 'Ical Balino'},
+        {icon: 'mdi-home', title: 'Alamat', subtitle: 'Jl.margosari 3 no.37 RT.02/RW.01 Kel.Salatiga Kec.Sidorejo 50714 Salatiga - Jawa Tengah'},
+        {icon: 'mdi-email', title: 'Email', subtitle: 'balino.ical@gmail.com'},
+        {icon: 'mdi-phone', title: 'Kontak', subtitle: '+6282242218978'},
       ],
     }
   }   
