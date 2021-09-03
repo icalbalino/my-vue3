@@ -16,16 +16,17 @@
 
     <template>
       <v-app-bar app light dense height="100" style="position: sticky;">
-          <v-tabs v-model="tab" centered slider-color="warning"> 
-              <v-tab v-for="list in lists" :key="list.text">{{ list.text }}</v-tab>
-          </v-tabs>
+        <v-tabs v-model="tab" centered slider-color="warning"> 
+          <v-tab v-for="list in lists" :key="list.text">{{ list.text }}</v-tab>
+        </v-tabs>
       </v-app-bar>
     </template>
 
     <v-main >
-      <section id="">
+      <section id="AboutMe">
         <v-container>
-          <v-row no-gutters>
+          <v-row no-gutters class="fill-height" >
+            
             <v-col class="mb-6" cols="12">
               <v-card class="pa-5" tile style="text-align:center;">
                 <h2>Who Am I</h2>
@@ -33,46 +34,34 @@
               </v-card>
             </v-col>
 
-            <v-col class="" cols="12" xs="12" sm="6" md="6">
-              <v-card class="d-flex align-center justify-center" tile>
+            <v-col class="d-flex align-stretch" cols="12" xs="12" sm="6" md="6">
+              <v-card class="d-flex justify-center" tile>
                 <v-img src="https://picsum.photos/id/1010/1000/"></v-img>
               </v-card>
             </v-col>
           
             <v-col cols="12" xs="12" sm="6" md="6">
-              <v-card class="pa-5" tile>
-                <h3 class="mb-5">I Design Awesome Web Apps</h3>
+              <v-card class="pa-10" tile>
+                <h3 class="mb-6">I Design Awesome Web Apps</h3>
                 <p style="text-align:justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere consequuntur error quibusdam excepturi vero, mollitia illum quasi minima, dicta ex optio quos sapiente quod harum totam suscipit aperiam. Commodi, beatae.</p>
                 <p style="text-align:justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid repudiandae quam excepturi ad doloremque nulla minima nemo. Iste facilis dolore reprehenderit voluptate aspernatur tenetur explicabo rem enim temporibus. Dolore.</p>
-                
-                <v-list>
-                  <v-list-item>
-                    <v-list-item-content >
-                      <v-list-item-icon v-for="item in detailIcons" :key="item.icon">
-                        <v-icon v-text="item.icon"></v-icon>
-                      </v-list-item-icon>
+                <v-divider class="my-10"></v-divider>
+                <v-list dense>
+                  <v-list-item v-for="item in items" :key="item.text" two-line> 
+                    <v-list-item-icon>
+                      <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ item.text }}</v-list-item-title>
+                      <v-list-item-subtitle v-html="item.subtext"></v-list-item-subtitle>
                     </v-list-item-content>
-
-                    <v-list-item-content v-for="text in detailIcons" :key="text.title">
-                      <v-list-item-title v-text="text.title"></v-list-item-title>
-                      <v-list-item-subtitle v-html="text.subtitle"></v-list-item-subtitle>
-                    </v-list-item-content>
-
                   </v-list-item>
                 </v-list>
-
               </v-card>
-            </v-col>          
+            </v-col>
+
           </v-row>
         </v-container>
-
-        <!-- <v-container>
-          <v-row>
-            <v-col v-for="n in 24" :key="n" cols="4">
-              <v-card height="200"></v-card>
-            </v-col>
-          </v-row>
-        </v-container> -->
       </section>
 
       <section id="Skills">
@@ -84,7 +73,7 @@
                 <p class="pa-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore, doloribus quos aspernatur inventore maiores ad. Dolorem velit id deserunt modi adipisci harum iusto sint porro repellat, dolor eveniet nulla?</p>
                 <v-row>
                   <v-col v-for="n in 4" :key="n" cols="3">
-                    <v-card height="200"></v-card>
+                    <v-card height="200" class="primary"></v-card>
                   </v-col>
                 </v-row>
               </v-card>
@@ -104,7 +93,7 @@
                 <p class="pa-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore, doloribus quos aspernatur inventore maiores ad. Dolorem velit id deserunt modi adipisci harum iusto sint porro repellat, dolor eveniet nulla?</p>
                 <v-row>
                   <v-col v-for="n in 4" :key="n" cols="3">
-                    <v-card height="200"></v-card>
+                    <v-card height="200" class="primary"></v-card>
                   </v-col>
                 </v-row>
               </v-card>
@@ -115,19 +104,16 @@
     </v-main>
 
     <v-footer id="Contact" dark padless>
-      <v-card flat tile class="indigo lighten-1 white--text text-center">
+      <v-card flat tile class="primary white--text text-center">
         <v-card-text>
           <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
             <v-icon size="24px"> {{ icon }} </v-icon>
           </v-btn>
         </v-card-text>
-
         <v-card-text class="white--text pt-0">
           Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </v-card-text>
-
         <v-divider></v-divider>
-
         <v-card-text class="white--text">
           {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
         </v-card-text>
@@ -155,11 +141,11 @@ export default {
         'mdi-linkedin',
         'mdi-instagram',
       ],
-      detailIcons: [
-        {icon: 'mdi-account', title: 'Nama', subtitle: 'Ical Balino'},
-        {icon: 'mdi-home', title: 'Alamat', subtitle: 'Jl.margosari 3 no.37 RT.02/RW.01 Kel.Salatiga Kec.Sidorejo 50714 Salatiga - Jawa Tengah'},
-        {icon: 'mdi-email', title: 'Email', subtitle: 'balino.ical@gmail.com'},
-        {icon: 'mdi-phone', title: 'Kontak', subtitle: '+6282242218978'},
+      items: [
+        {icon: 'mdi-account', text: 'Nama', subtext: 'Ical Balino'},
+        {icon: 'mdi-home', text: 'Alamat', subtext: '<p>Jl.margosari 3 no.37 RT.02/RW.01 <br> Kel.Salatiga Kec.Sidorejo <br> ID 50714 <br> Salatiga - Jawa Tengah</p>'},
+        {icon: 'mdi-email', text: 'Email', subtext: 'balino.ical@gmail.com'},
+        {icon: 'mdi-phone', text: 'Kontak', subtext: '+6282242218978'},
       ],
     }
   }   
