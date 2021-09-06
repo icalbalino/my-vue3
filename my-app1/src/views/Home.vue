@@ -14,6 +14,7 @@
       </v-container>
     </header>
 
+
     <template>
       <v-app-bar app light dense height="100" style="position: sticky;">
         <v-tabs v-model="tab" centered slider-color="warning"> 
@@ -22,11 +23,11 @@
       </v-app-bar>
     </template>
 
-    <v-main >
+
+    <v-main>
       <section id="AboutMe">
         <v-container>
-          <v-row no-gutters class="fill-height" >
-            
+          <v-row no-gutters class="fill-height">
             <v-col class="mb-6" cols="12">
               <v-card class="pa-5" tile style="text-align:center;">
                 <h2>Who Am I</h2>
@@ -59,10 +60,59 @@
                 </v-list>
               </v-card>
             </v-col>
-
           </v-row>
         </v-container>
       </section>
+
+
+      <section id="Experience">
+        <v-container>
+          <v-row no-gutters class="fill-height d-flex align-content-stretch justify-center flex-wrap" >
+            <v-col class="mb-6" cols="12">
+              <v-card class="pa-5" tile style="text-align:center;">
+                <h2 class="my-4">Experience</h2>
+              </v-card>
+            </v-col>
+
+            <v-col cols="12" xs="12" sm="9" md="6" class="d-flex">
+              <v-card tile flat class="pa-6">
+                <v-card-text>
+                  <div class="font-weight-bold mb-4" style="font-size: 20px;">2021-2021</div>
+                  <v-timeline dense>
+                    <v-timeline-item v-for="message in messages" :key="message.time" :color="message.color" small>
+                      <div>
+                        <v-list-item-content>
+                          <v-list-item-title style="font-size: 14px;" class="mb-2"><strong>{{ message.text }}</strong></v-list-item-title>
+                          <v-list-item-subtitle style="font-size: 12px;" class="warning--text">{{ message.subtext}}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </div>
+                    </v-timeline-item>
+                  </v-timeline>
+                </v-card-text>
+              </v-card>
+            </v-col>
+
+            <v-col cols="12" xs="12" sm="9" md="6" class="d-flex">
+              <v-card tile flat class="pa-6">
+                <v-card-text>
+                  <div class="font-weight-bold mb-4" style="font-size: 20px;">2019-2020</div>
+                  <v-timeline dense>
+                    <v-timeline-item v-for="message in messages2" :key="message.time" :color="message.color" small>
+                      <div>
+                        <v-list-item-content>
+                          <v-list-item-title style="font-size: 14px;" class="mb-2"><strong>{{ message.text }}</strong></v-list-item-title>
+                          <v-list-item-subtitle style="font-size: 12px;" class="warning--text">{{ message.subtext}}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </div>
+                    </v-timeline-item>
+                  </v-timeline>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </section>
+
 
       <section id="Skills">
         <v-container>
@@ -82,7 +132,6 @@
         </v-container>
       </section>
 
-      <section id="Experience"></section>
 
       <section id="Education">
         <v-container>
@@ -102,6 +151,7 @@
         </v-container>
       </section>
     </v-main>
+
 
     <v-footer id="Contact" dark padless>
       <v-card flat tile class="primary white--text text-center">
@@ -146,6 +196,16 @@ export default {
         {icon: 'mdi-home', text: 'Alamat', subtext: '<p>Jl.margosari 3 no.37 RT.02/RW.01 <br> Kel.Salatiga Kec.Sidorejo <br> ID 50714 <br> Salatiga - Jawa Tengah</p>'},
         {icon: 'mdi-email', text: 'Email', subtext: 'balino.ical@gmail.com'},
         {icon: 'mdi-phone', text: 'Kontak', subtext: '+6282242218978'},
+      ],
+      messages: [
+        {subtext: 'Dicoding Indonesia', text: 'Architecting on AWS (Membangun Arsitektur Cloud di AWS)', color: 'primary'},
+        {subtext: 'Dicoding Indonesia', text: 'Fundamental Aplikasi Back-End', color: 'primary'},
+        {subtext: 'Dicoding Indonesia', text: 'Membuat Front-End Web (pemula)', color: 'primary'},
+        {subtext: 'Dicoding Indonesia', text: 'Membuat Aplikasi Back-End (pemula) ', color: 'primary'},
+      ],
+      messages2: [
+        {subtext: 'Universitas Kristen Satya Wacana', text: 'Asisten Dosen Interaksi Manusia dan Komputer', color: 'primary'},
+        {subtext: 'Universitas Kristen Satya Wacana', text: 'Anggota DIV. Internal HMP S1 Teknik Informatika FTI UKSW ', color: 'primary'},
       ],
     }
   }   
